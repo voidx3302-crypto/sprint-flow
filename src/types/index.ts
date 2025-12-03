@@ -36,4 +36,4 @@ export interface Sprint {
   isActive: boolean;
 }
 
-export type ViewMode = 'board' | 'timeline';
+export type ViewMode = 'board' | 'timeline' | 'backlog' | 'team' | 'reports';

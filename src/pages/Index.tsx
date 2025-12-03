@@ -4,6 +4,9 @@ import { Sidebar } from '@/components/Layout/Sidebar';
 import { Header } from '@/components/Layout/Header';
 import { SprintBoard } from '@/components/Board/SprintBoard';
 import { TimelineView } from '@/components/Timeline/TimelineView';
+import { BacklogView } from '@/components/Views/BacklogView';
+import { TeamView } from '@/components/Views/TeamView';
+import { ReportsView } from '@/components/Views/ReportsView';
 import { TaskModal } from '@/components/Modals/TaskModal';
 import { SettingsModal } from '@/components/Modals/SettingsModal';
 import { Task, ViewMode } from '@/types';
@@ -34,6 +37,23 @@ const AppContent: React.FC = () => {
     setIsNewTask(false);
   };
 
+  const renderView = () => {
+    switch (currentView) {
+      case 'board':
+        return <SprintBoard onTaskClick={handleTaskClick} />;
+      case 'timeline':
+        return <TimelineView onTaskClick={handleTaskClick} />;
+      case 'backlog':
+        return <BacklogView onTaskClick={handleTaskClick} onAddTask={handleAddTask} />;
+      case 'team':
+        return <TeamView onTaskClick={handleTaskClick} />;
+      case 'reports':
+        return <ReportsView />;
+      default:
+        return <SprintBoard onTaskClick={handleTaskClick} />;
+    }
+  };
+
   return (
     <div className="flex h-screen w-full bg-background">
       <Sidebar
@@ -48,11 +68,7 @@ const AppContent: React.FC = () => {
         <Header onAddTask={handleAddTask} />
 
         <main className="flex-1 overflow-hidden">
-          {currentView === 'board' ? (
-            <SprintBoard onTaskClick={handleTaskClick} />
-          ) : (
-            <TimelineView onTaskClick={handleTaskClick} />
-          )}
+          {renderView()}
         </main>
       </div>
 
