@@ -7,6 +7,8 @@ import { TimelineView } from '@/components/Timeline/TimelineView';
 import { BacklogView } from '@/components/Views/BacklogView';
 import { TeamView } from '@/components/Views/TeamView';
 import { ReportsView } from '@/components/Views/ReportsView';
+import { RoadmapView } from '@/components/Views/RoadmapView';
+import { IssuesView } from '@/components/Views/IssuesView';
 import { TaskModal } from '@/components/Modals/TaskModal';
 import { SettingsModal } from '@/components/Modals/SettingsModal';
 import { Task, ViewMode } from '@/types';
@@ -43,6 +45,10 @@ const AppContent: React.FC = () => {
         return <SprintBoard onTaskClick={handleTaskClick} />;
       case 'timeline':
         return <TimelineView onTaskClick={handleTaskClick} />;
+      case 'roadmap':
+        return <RoadmapView />;
+      case 'issues':
+        return <IssuesView onTaskClick={handleTaskClick} onAddTask={handleAddTask} />;
       case 'backlog':
         return <BacklogView onTaskClick={handleTaskClick} onAddTask={handleAddTask} />;
       case 'team':

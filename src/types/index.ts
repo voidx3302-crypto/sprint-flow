@@ -36,4 +36,14 @@ export interface Sprint {
   isActive: boolean;
 }
 
-export type ViewMode = 'board' | 'timeline' | 'backlog' | 'team' | 'reports';
+export type ViewMode = 'board' | 'timeline' | 'backlog' | 'team' | 'reports' | 'roadmap' | 'issues';
+
+export interface Epic {
+  id: string;
+  title: string;
+  description: string;
+  color: string;
+  startDate: Date;
+  endDate: Date;
+  taskIds: string[];
+}
