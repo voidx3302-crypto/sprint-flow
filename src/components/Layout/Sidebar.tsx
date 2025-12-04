@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutGrid, Calendar, Users, Settings, ChevronLeft, ChevronRight, Zap, List, BarChart3, Map, AlertCircle } from 'lucide-react';
+import { LayoutGrid, Calendar, Users, Settings, ChevronLeft, ChevronRight, Zap, List, BarChart3 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ViewMode } from '@/types';
@@ -15,8 +15,6 @@ interface SidebarProps {
 const navItems = [
   { id: 'board' as ViewMode, label: 'Board', icon: LayoutGrid },
   { id: 'timeline' as ViewMode, label: 'Timeline', icon: Calendar },
-  { id: 'roadmap' as ViewMode, label: 'Roadmap', icon: Map },
-  { id: 'issues' as ViewMode, label: 'Issues', icon: AlertCircle },
   { id: 'backlog' as ViewMode, label: 'Backlog', icon: List },
   { id: 'team' as ViewMode, label: 'Team', icon: Users },
   { id: 'reports' as ViewMode, label: 'Reports', icon: BarChart3 },
